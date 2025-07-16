@@ -9,9 +9,16 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: "chrome-extension://gkabhcpjgcmhnckfpdaahdfhoikhfgba",
+  origin: (origin, callback) => {
+    if (!origin || origin.startsWith("chrome-extension://")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   methods: ["POST"],
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
