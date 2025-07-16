@@ -31,7 +31,7 @@ const Popup = () => {
       payload.append("content", formData.content);
       payload.append("resume", resumeFile);
 
-      const res = await axios.post("http://localhost:5000/api/email/send", payload, {
+      const res = await axios.post("https://jobmailer-production.up.railway.app/api/email/send", payload, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
