@@ -1,0 +1,20 @@
+# Global ignores
+node_modules/
+.env
+.DS_Store
+*.log
+
+# Ignore uploads (if resume files are stored)
+Backend/uploads/
+
+# VSCode & OS files
+.vscode/
+Thumbs.db
+
+# Dist builds
+Extension/dist/
+Extension/.vite/
+
+# Cache
+**/.cache/
+**/coverage/
